@@ -1,6 +1,6 @@
-package edu.wctc.tempsensor.iface;
+package edu.wctc.iface;
 
-public interface Observer {
+public interface PullObserver {
     /**
      * Called when whatever this observer is observing changes
      * <p>

@@ -2,8 +2,8 @@ package edu.wctc.tempsensor;
 
 
 
-import edu.wctc.tempsensor.iface.Observable;
-import edu.wctc.tempsensor.iface.Observer;
+import edu.wctc.iface.PullObservable;
+import edu.wctc.iface.PullObserver;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class TemperatureSensor extends JFrame implements Observable {
+public class TemperatureSensor extends JFrame implements PullObservable {
     // Create a randomizer to increase/reduce
     // the temperature by a small amount each tick
     Random randomChangeGenerator = new Random();
@@ -22,7 +22,7 @@ public class TemperatureSensor extends JFrame implements Observable {
 
     // All observers who should be notified when the
     // temperature changes
-    private List<Observer> observerList = new ArrayList<>();
+    private List<PullObserver> observerList = new ArrayList<>();
 
     // Buttons that cause drastic temperature changes when clicked
     private JButton btnHeatWave = new JButton("Heat Wave!");
@@ -54,7 +54,7 @@ public class TemperatureSensor extends JFrame implements Observable {
      * @param observer Any Observer implementation
      */
     @Override
-    public void addObserver(Observer observer) {
+    public void addObserver(PullObserver observer) {
         observerList.add(observer);
     }
 
@@ -124,7 +124,7 @@ public class TemperatureSensor extends JFrame implements Observable {
      */
     @Override
     public void notifyObservers() {
-        for (Observer observer : observerList) {
+        for (PullObserver observer : observerList) {
             observer.update();
         }
     }
@@ -135,7 +135,7 @@ public class TemperatureSensor extends JFrame implements Observable {
      * @param observer
      */
     @Override
-    public void removeObserver(Observer observer) {
+    public void removeObserver(PullObserver observer) {
         observerList.remove(observer);
     }
 

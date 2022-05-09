@@ -1,7 +1,7 @@
 package edu.wctc.tempsensor;
 
 
-import edu.wctc.tempsensor.iface.Observer;
+import edu.wctc.iface.PullObserver;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
  * when the temperature at the sensor changes so it can
  * write to its file.
  */
-public class Database implements Observer {
+public class Database implements PullObserver {
     private TemperatureSensor temperatureSensor;
 
     // A simple "database" -- just writing lines to a file

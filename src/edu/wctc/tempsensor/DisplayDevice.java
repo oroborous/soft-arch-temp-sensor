@@ -1,6 +1,6 @@
 package edu.wctc.tempsensor;
 
-import edu.wctc.tempsensor.iface.Observer;
+import edu.wctc.iface.PullObserver;
 
 import javax.swing.*;
 import java.awt.*;
@@ -15,7 +15,7 @@ import java.awt.*;
  * being registered by the weather sensor changes, so they
  * can update their screens.
  */
-public class DisplayDevice extends JFrame implements Observer {
+public class DisplayDevice extends JFrame implements PullObserver {
 
     private TemperatureSensor temperatureSensor;
     private String deviceName;
