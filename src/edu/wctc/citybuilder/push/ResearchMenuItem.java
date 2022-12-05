@@ -5,15 +5,11 @@ import edu.wctc.iface.PushObserver;
 import javax.swing.*;
 
 public class ResearchMenuItem extends JButton implements PushObserver {
-    private String name;
-    private int daysToComplete;
     private int researchCost;
     private boolean canResearch = false;
 
-    public ResearchMenuItem(String name, int daysToComplete, int researchCost) {
+    public ResearchMenuItem(String name, int researchCost) {
         super(name + ": " + researchCost);
-        this.name = name;
-        this.daysToComplete = daysToComplete;
         this.researchCost = researchCost;
     }
 

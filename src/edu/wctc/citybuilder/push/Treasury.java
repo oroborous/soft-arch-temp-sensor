@@ -27,7 +27,7 @@ public class Treasury extends JLabel implements PushObservable, Runnable {
     public void run() {
         while(true) {
             try {
-                int randomGold = (int)Math.floor(Math.random() * 500) - 150;
+                int randomGold = (int)Math.floor(Math.random() * 500) - 200;
                 earn(randomGold);
                 setText("Gold: " + goldOnHand);
                 Thread.sleep(2500);

@@ -5,13 +5,11 @@ import edu.wctc.iface.PushObserver;
 import javax.swing.*;
 
 public class Building extends JButton implements PushObserver {
-    private String name;
     private int upgradeCost;
     private boolean canUpgrade = false;
 
     public Building(String name, int upgradeCost) {
         super(name + ": " + upgradeCost);
-        this.name = name;
         this.upgradeCost = upgradeCost;
     }
 

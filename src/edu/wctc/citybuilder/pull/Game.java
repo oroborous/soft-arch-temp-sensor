@@ -1,9 +1,6 @@
 package edu.wctc.citybuilder.pull;
 
-import edu.wctc.citybuilder.pull.Treasury;
-
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -32,7 +29,7 @@ public class Game {
         gameWindow = new JFrame("City Builder (Pull Model)");
         gameWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         JPanel pnlMain = new JPanel(new GridLayout(7, 1, 10, 10));
-        pnlMain.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
+        pnlMain.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         pnlMain.add(treasury);
         pnlMain.add(new JLabel("Upgrade buildings"));
         pnlMain.add(new ButtonPanel(buildings));
@@ -48,7 +45,7 @@ public class Game {
     class ButtonPanel extends JPanel {
         ButtonPanel(List<? extends JButton> buttons) {
             setLayout(new GridLayout(1, buttons.size(), 10, 10));
-            setBorder(BorderFactory.createEmptyBorder(0,10,10,10));
+            setBorder(BorderFactory.createEmptyBorder(0, 10, 10, 10));
             buttons.forEach(this::add);
         }
     }
@@ -58,7 +55,7 @@ public class Game {
         buildings.add(new Building("forester", 475));
         buildings.add(new Building("blacksmith", 500));
         buildings.add(new Building("hospital", 750));
-        for(Building b : buildings)
+        for (Building b : buildings)
             b.register(treasury);
     }
 
@@ -73,10 +70,10 @@ public class Game {
     }
 
     public void createResearchMenuItems() {
-        researchMenuItems.add(new ResearchMenuItem("weaving", 10, 100));
-        researchMenuItems.add(new ResearchMenuItem("trade", 45, 500));
-        researchMenuItems.add(new ResearchMenuItem("steel", 30, 750));
-        researchMenuItems.add(new ResearchMenuItem("banking", 30, 1000));
+        researchMenuItems.add(new ResearchMenuItem("weaving", 100));
+        researchMenuItems.add(new ResearchMenuItem("trade", 500));
+        researchMenuItems.add(new ResearchMenuItem("steel", 750));
+        researchMenuItems.add(new ResearchMenuItem("banking", 1000));
         for (ResearchMenuItem rmi : researchMenuItems)
             rmi.register(treasury);
     }
